@@ -1,0 +1,71 @@
+.imagecontainer{
+    /* background-image: url('https://i.ibb.co/Cv6Y9NL/bg.jpg'); */
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/20/164/15/booking-best-hotels-bangkok-tourism-wallpaper-preview.jpg');
+    border-style: solid ;
+    border-color: rgb(174, 189, 89);
+    box-shadow: 0 3px 6px black;
+    border-radius: 10px;
+
+
+}
+body{
+    margin: auto;
+    background-color: rgb(239, 243, 233);
+}
+/* #logo{
+    text-align: center;
+    color: rgb(26, 170, 206);
+    font-weight: bold;
+    font-size: 90px;
+    background-color: whitesmoke;
+    height: 150px;
+    width: 150px;
+    margin: auto;
+    border-radius: 80px; 
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+} */
+
+.heading{
+    text-align: center;
+    font-size: 50px;
+    color: #e2f110;
+    height: 60px;
+
+}
+.locationSelector{
+    margin-top: center;
+    color:rgb(245, 57, 120);
+    font-size: 144px;
+    text-align: center;
+    height: 180px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* background-color: rgb(247, 240, 246); */
+ 
+}
+.locationDropDown{
+    width: 250px;
+    height: 40px;
+    border-radius: 0%;
+    font-size: 15px;
+    border: none;
+    box-shadow: 0 3px 6px black;
+    border-radius: 20px;
+
+
+}
+.Reataurantsinput{
+    width: 250px;
+    height: 40px;
+    border-radius: 0%;
+    font-size: 15px;
+    border: none;
+    margin-left: 10px;
+    box-shadow: 0 3px 6px black;
+    border-radius: 20px;
+
+
+}
