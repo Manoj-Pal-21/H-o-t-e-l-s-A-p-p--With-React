@@ -45,7 +45,7 @@ const ListingDisplay = (props) => {
                 )
             }
 
-        }else {
+        } else {
             return (
                 <div>
                     <img src="/images/loader.gif" alt="Fuck" />
@@ -54,9 +54,17 @@ const ListingDisplay = (props) => {
         }
     }
     return (
-        <div>
-            {renderList(props)}
+        <div className="container_fluid">
+            <div className="main-heading">
+                <div className="row">
+                    <div className="col-md-12">
+                        {renderList(props)}
+                    </div>
+                </div>
+            </div>
         </div>
+
+
     )
 }
 
