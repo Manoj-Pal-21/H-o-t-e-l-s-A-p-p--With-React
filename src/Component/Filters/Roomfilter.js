@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const url = "https://developerfunnel.herokuapp.com/hotellist/1?roomtype=1";
+const url = "https://developerfunnel.herokuapp.com/hotellist";
 
 class RoomFilter extends Component {
+    filterlogic = (event) => {
+        let roomNumber = event.target.value;
+        let tripId = sessionStorage.getItem('tripid');
+        let roomurl;
+        if (roomNumber == "") {
+            roomurl = `${url}/${tripId}`
+        } else {
+            roomurl = `${url}/${tripId}?roomtype=${roomNumber}`
+        }
+        axios.get(roomurl)
+            .then((response) => { this.props.hotelperRoom(response.data) })
+
+    }
     render() {
         return (
             <React.Fragment>
                 <center>Room Filter</center>
-                <div>
+                <div onChange={this.filterlogic}>
                     <label className="radio">
                         <input type="radio" value="" name="room" />All
                     </label>

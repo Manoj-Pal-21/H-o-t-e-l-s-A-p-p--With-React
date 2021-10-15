@@ -13,11 +13,15 @@ class Listing extends Component {
             hoteldata: ''
         }
     }
+
+    setDataPerFilter(sortedData){
+        this.setState({hoteldata:sortedData})
+    }
     render() {
         return (
             <div className="row">
                 <div className="col-md-2">
-                    <Roomfilter/>
+                    <Roomfilter hotelperRoom = {(data) => {this.setDataPerFilter(data)}}/>
                 </div>
                 <div className="col-md-10">
                     <ListingDisplay hotellist={this.state.hoteldata} />
@@ -28,6 +32,7 @@ class Listing extends Component {
 
     componentDidMount() {
         var tripid = this.props.match.params.id;
+        sessionStorage.setItem('tripid',tripid)
         axios.get(`${url}/${tripid}`)
             .then((response) => this.setState({ hoteldata: response.data }))
     }
