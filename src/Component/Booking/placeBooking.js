@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const url = "";
@@ -9,12 +8,31 @@ class PlaceBooking extends Component {
         super()
 
         this.state = {
-            order_id: Math.floor(Math.random() * 10000),
+            id: Math.floor(Math.random() * 10000),
             hotelname: sessionStorage.getItem('hotelname'),
             name: '',
             phone: ''
         }
     }
+    handleChangeName = (event) => {
+        this.setState({ name: event.target.value })
+    }
+    handleChangePhone = (event) => {
+        this.setState({ phone: event.target.value })
+    }
+    handleSubmit = () => {
+        console.log(this.state)
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state)
+        })
+            .then(this.props.history.push('/'))
+    }
+
 
     render() {
         return (
@@ -34,14 +52,16 @@ class PlaceBooking extends Component {
                         </div>
                         <div className="form-group">
                             <label className="control-label">Name</label>
-                            <input type="text" name="order_id" value={this.state.name} className="form-control" />
+                            <input type="text" name="order_id" value={this.state.name} className="form-control"
+                                onChange={this.handleChangeName} />
                         </div>
                         <div className="form-group">
                             <label className="control-label">Phone</label>
-                            <input type="text" name="order_id" value={this.state.phone} className="form-control" />
+                            <input type="text" name="order_id" value={this.state.phone} className="form-control"
+                                onChange={this.handleChangePhone} />
                         </div>
                         <Link to="/" className="btn btn-danger">Cancel</Link> &nbsp;
-                        <button className="btn btn-success">Submit</button>
+                        <button className="btn btn-success" onClick={this.handleSubmit}>Submit</button>
                     </div>
 
                 </div>
