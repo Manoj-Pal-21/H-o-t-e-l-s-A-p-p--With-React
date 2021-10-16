@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Home from "./Home/Home";
 import Listingapi from './Listing/Listingapi';
 import Details from './Details/details';
+import placeBooking from './Booking/placeBooking';
 
 const Routing = () => {
     return (
@@ -14,6 +15,7 @@ const Routing = () => {
                 <Route exact path="/" component={Home} />
                 <Route path="/list/:id" component={Listingapi}/>
                 <Route path="/Details/:id" component={Details}/>
+                <Route path="/Booking/:id" component={placeBooking}/>
                 <Footer />
             </div>
         </BrowserRouter>

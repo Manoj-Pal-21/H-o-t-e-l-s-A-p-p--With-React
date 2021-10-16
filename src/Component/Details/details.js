@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-const url = "https://developerfunnel.herokuapp.com/hotelsdetails/1"
+const url = "https://developerfunnel.herokuapp.com/hotelsdetails"
 
 var settings = {
     dots: true,
@@ -25,7 +25,8 @@ class HotelDetails extends Component {
         }
     }
     render() {
-        let { hotel } = this.state
+        sessionStorage.setItem('hotelname',this.state.hotel.name)
+        let {hotel} = this.state
         return (
             <div className="container">
                 <div className="panel panel-primary">
@@ -35,7 +36,7 @@ class HotelDetails extends Component {
                                 <h3>{hotel.name}</h3>
                             </div>
                             <div className="col-md-1">
-                                <Link to="/" className="btn btn-danger">Back</Link>
+                                <Link to={`/list/${this.state.tripid}`} className="btn btn-danger">Back</Link>
                             </div>
                         </div>
                     </div>
@@ -44,15 +45,15 @@ class HotelDetails extends Component {
                             <div className="col-md-12">
                                 <Slider {...settings}>
                                     <div>
-                                        <img src={hotel.thumb} className="img-responsive"
+                                        <img src={hotel.thumb} className="img-responsive" alt=""
                                             style={{ width: 1500, height: 400 }} />
                                     </div>
                                     <div>
-                                        <img src="https://i.ibb.co/5nKNcz1/pride.jpg" className="img-responsive"
+                                        <img src="https://i.ibb.co/5nKNcz1/pride.jpg" className="img-responsive" alt=""
                                             style={{ width: 1500, height: 400 }} />
                                     </div>
                                     <div>
-                                        <img src="https://i.ibb.co/QD1RRBk/piccadily.jpg" className="img-responsive"
+                                        <img src="https://i.ibb.co/QD1RRBk/piccadily.jpg" className="img-responsive" alt=""
                                             style={{ width: 1500, height: 400 }} />
                                     </div>
                                 </Slider>
@@ -60,21 +61,32 @@ class HotelDetails extends Component {
                             <h2>{hotel.name}</h2>
                         </div>
                         <div>
-                            <Tabs>
-                                <TabList>
-                                    <Tab>Address</Tab>
-                                    <Tab>Cost</Tab>
-                                </TabList>
+                            <div>
+                                <Tabs>
+                                    <TabList>
+                                        <Tab>Address</Tab>
+                                        <Tab>Cost</Tab>
+                                        <Tab>Animation</Tab>
+                                    </TabList>
 
-                                <TabPanel>
-                                    <h2>{hotel.locality}</h2>
-                                    <h2>{hotel.address}</h2>
-                                </TabPanel>
-                                <TabPanel>
-                                    <h2>{hotel.cost}</h2>
-                                </TabPanel>
-                            </Tabs>
-
+                                    <TabPanel>
+                                        <h2>{hotel.locality}</h2>
+                                        <h2>{hotel.address}</h2>
+                                    </TabPanel>
+                                    <TabPanel>
+                                        <h2>Rs. {hotel.cost}</h2>
+                                    </TabPanel>
+                                    <TabPanel>
+                                    <h3>
+                                        <span className="glyphicon glyphicon-road"></span>Parking<br/>
+                                        <span className="glyphicon glyphicon-fire"></span>Bone Fire<br/>
+                                    </h3>
+                                    </TabPanel>
+                                </Tabs>
+                            </div>
+                            <div>
+                                <Link to={`/booking/${hotel._id}`} className="btn btn-success">Place Booking</Link>
+                                </div>    
                         </div>
                     </div>
                 </div>
@@ -85,6 +97,7 @@ class HotelDetails extends Component {
         var tripid = this.props.match.params.id;
         const response = await axios.get(`${url}/${tripid}`)
         this.setState({ hotel: response.data })
+        
     }
 }
 export default HotelDetails;

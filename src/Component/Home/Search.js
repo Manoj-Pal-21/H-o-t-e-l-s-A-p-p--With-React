@@ -47,10 +47,7 @@ class Search extends Component {
 
     render() {
         return (
-            <div className="imagecontainer">
-                <div id="logo">
-                    D!!
-                </div>
+            <div className="imagecontainer">                
                 <div className='heading'>
                     Plan Trip For Us
                 </div>
