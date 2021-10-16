@@ -12,7 +12,7 @@ const ListingDisplay = (props) => {
                         <div className="item" id={item.id}>
                             <div className="row">
                                 <div className="col-md-5">
-                                    <img className="Image" src={item.thumb} />
+                                    <img className="Image" src={item.thumb} alt="" />
                                 </div>
                                 <div className="col-md-7">
                                     <div className="hotel_name">

@@ -25,8 +25,8 @@ class HotelDetails extends Component {
         }
     }
     render() {
-        sessionStorage.setItem('hotelname',this.state.hotel.name)
-        let {hotel} = this.state
+        sessionStorage.setItem('hotelname', this.state.hotel.name)
+        let { hotel } = this.state
         return (
             <div className="container">
                 <div className="panel panel-primary">
@@ -77,16 +77,16 @@ class HotelDetails extends Component {
                                         <h2>Rs. {hotel.cost}</h2>
                                     </TabPanel>
                                     <TabPanel>
-                                    <h3>
-                                        <span className="glyphicon glyphicon-road"></span>Parking<br/>
-                                        <span className="glyphicon glyphicon-fire"></span>Bone Fire<br/>
-                                    </h3>
+                                        <h3>
+                                            <span className="glyphicon glyphicon-road"></span>Parking<br />
+                                            <span className="glyphicon glyphicon-fire"></span>Bone Fire<br />
+                                        </h3>
                                     </TabPanel>
                                 </Tabs>
                             </div>
                             <div>
                                 <Link to={`/booking/${hotel._id}`} className="btn btn-success">Place Booking</Link>
-                                </div>    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -94,10 +94,10 @@ class HotelDetails extends Component {
         )
     }
     async componentDidMount() {
-        var tripid = this.props.match.params.id;
-        const response = await axios.get(`${url}/${tripid}`)
-        this.setState({ hotel: response.data })
-        
+        var hotelid = this.props.match.params.id;
+        const response = await axios.get(`${url}/${hotelid}`)
+        this.setState({ hotel: response.data[0] })
+
     }
 }
 export default HotelDetails;
