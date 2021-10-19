@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const url = "";
+const url = " http://localhost:8000/data";
 
 class PlaceBooking extends Component {
     constructor() {
@@ -44,7 +44,7 @@ class PlaceBooking extends Component {
                     <div className="panel-body">
                         <div className="form-group">
                             <label className="control-label">Order_Id</label>
-                            <input type="text" name="order_id" value={this.state.order_id} readOnly className="form-control"></input>
+                            <input type="text" name="order_id" value={this.state.id} readOnly className="form-control"></input>
                         </div>
                         <div className="form-group">
                             <label className="control-label">Hotel_Name</label>
