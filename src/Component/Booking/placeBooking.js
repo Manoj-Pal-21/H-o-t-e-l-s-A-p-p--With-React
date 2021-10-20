@@ -11,7 +11,8 @@ class PlaceBooking extends Component {
             id: Math.floor(Math.random() * 10000),
             hotelname: sessionStorage.getItem('hotelname'),
             name: '',
-            phone: ''
+            phone: '',
+            status:'pending'
         }
     }
     handleChangeName = (event) => {
@@ -30,7 +31,7 @@ class PlaceBooking extends Component {
             },
             body: JSON.stringify(this.state)
         })
-            .then(this.props.history.push('/'))
+            .then(this.props.history.push('/viewBooking'))
     }
 
 

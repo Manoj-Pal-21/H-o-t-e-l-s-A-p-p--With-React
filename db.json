@@ -1,22 +1,25 @@
 {
   "data": [
     {
-      "_id": 3,
-      "city_name": "Pune",
-      "city": 3,
-      "country_name": "India"
-    },
-    {
-      "id": 2,
-      "city_name": "Mumbai",
-      "city": 2,
-      "country_name": "India"
-    },
-    {
       "id": 7459,
       "hotelname": "Hometel Chandigarh",
       "name": "Manoj",
-      "phone": "654646577"
+      "phone": "654646577",
+      "status": "pending"
+    },
+    {
+      "id": 6505,
+      "hotelname": "The Corinthians Resort",
+      "name": "sawan",
+      "phone": "9878957690",
+      "status": "pending"
+    },
+    {
+      "id": 1198,
+      "hotelname": "Hometel Chandigarh",
+      "name": "Rahul",
+      "phone": "4658990090",
+      "status": "pending"
     }
   ]
 }
